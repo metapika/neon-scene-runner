@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxdr2lahllqg1"]
+
+[ext_resource type="PackedScene" uid="uid://uwmc25gkluhf" path="res://Scenes/Example/ExampleDebugUI.tscn" id="1_thwuh"]
+
+[node name="ExampleScene2" type="Node2D"]
+
+[node name="DEBUGONLYUI" parent="." instance=ExtResource("1_thwuh")]
+
+[node name="SceneNotify" parent="DEBUGONLYUI" index="0"]
+text = "[color=\"blue\"]You are on ExampleScene: 2"
+
+[editable path="DEBUGONLYUI"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://byl6ccg2is28v"]
+
+[ext_resource type="Script" uid="uid://cj4okfhgkgch5" path="res://addons/neon_scene_runner/Scripts/Example/NeonRunner-Example-SwitchingScenes.gd" id="1_48myx"]
+
+[node name="ExampleMainMenu" type="Node2D"]
+
+[node name="DEBUGONLYUI" type="CanvasLayer" parent="."]
+layer = 0
+script = ExtResource("1_48myx")
+
+[node name="SceneNotify" type="RichTextLabel" parent="DEBUGONLYUI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 225.0
+offset_bottom = 304.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "GAME TITLE
+[font_size=15] (you are on the main menu)"
+horizontal_alignment = 1
+
+[node name="ButtonHolder" type="HBoxContainer" parent="DEBUGONLYUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 348.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ChangeSceneButton" type="Button" parent="DEBUGONLYUI/ButtonHolder"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Play Game"
+
+[connection signal="button_down" from="DEBUGONLYUI/ButtonHolder/ChangeSceneButton" to="DEBUGONLYUI" method="_on_change_scene_button_down" binds= [1]]

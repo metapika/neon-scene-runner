@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://18j3gb1imxbv"]
+
+[sub_resource type="Animation" id="Animation_3fn5d"]
+resource_name = "loading"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.000193119, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Now Loading", "Now Loading.", "Now Loading..", "Now Loading..."]
+}
+
+[sub_resource type="Animation" id="Animation_ie7ld"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Now Loading"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syl1o"]
+_data = {
+&"RESET": SubResource("Animation_ie7ld"),
+&"loading": SubResource("Animation_3fn5d")
+}
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LoadingNotification" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -83.0
+offset_right = -20.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Now Loading"
+vertical_alignment = 2
+
+[node name="LoadingSimulation" type="AnimationPlayer" parent="LoadingNotification"]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_syl1o")
+}
+autoplay = "loading"

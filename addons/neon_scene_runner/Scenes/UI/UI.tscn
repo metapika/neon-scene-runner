@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqvcoeb40bxwh"]
+
+[ext_resource type="PackedScene" uid="uid://18j3gb1imxbv" path="res://addons/neon_scene_runner/Scenes/UI/ExampleLoadingScreen.tscn" id="1_s86y4"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadingScreen" parent="." instance=ExtResource("1_s86y4")]
+visible = false
+layout_mode = 1
