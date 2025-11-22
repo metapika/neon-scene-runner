@@ -64,7 +64,8 @@ Firstly, let's discuss the core aspects of the **Plugin**. We have 2 **main comp
         - **UI** - A Node that contains all the UI you want to store and access globally (Like Loading Screens, Pause Menus, etc.)
 
 
-> [!WARNING] It is very important that you DON'T CHANGE the Runner Scene AT ALL. If you wish to add any UI elements add them to the UI Scene. Never change the ordering of any Nodes, or the script will generate many errors and will not work as expected. There is one exception to this rule that will be discussed later in the Advanced Section.
+> [!CAUTION]
+> It is very important that you DON'T CHANGE the Runner Scene AT ALL. If you wish to add any UI elements add them to the UI Scene. Never change the ordering of any Nodes, or the script will generate many errors and will not work as expected. There is one exception to this rule that will be discussed later in the Advanced Section.
 
 # Setup
 
@@ -85,7 +86,8 @@ Firstly, let's discuss the core aspects of the **Plugin**. We have 2 **main comp
     - App.\_runner.\_change_scene("ExampleScene2", false)
 
 
-> [!WARNING] If you ever disable the NeonSceneRunner Plugin it will produce errors as it automatically removes the App script from Autoload. You can either comment out the usages of the _change_scene() function or change the way you access the App script (as see in the Example script):
+> [!CAUTION]
+> If you ever disable the NeonSceneRunner Plugin it will produce errors as it automatically removes the App script from Autoload. You can either comment out the usages of the _change_scene() function or change the way you access the App script (as see in the Example script):
 
 - if ProjectSettings.has_setting("autoload/App"):  
             get_tree().root.get_node("App").\_runner.\_change_scene("ExampleScene" + str((\_example_scene_index)))
