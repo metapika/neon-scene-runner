@@ -102,6 +102,10 @@ func _change_scene(_scene_name : String, _show_loading_screen = true):
 		_debug_message("You tried to load the same scene. Aborting..")
 		return
 	
+	if !(_scene_name in _game_scenes.keys()):
+		_debug_message("The scene you tried to change to (%s) is not present in the GameScenes folder. Please make sure the scene you want to change to is in res://%s" % [_scene_name, _game_scenes_path], true)
+		return
+	
 	## Current scenes are always the first childo of the _scene_holder Node
 	var _current_scene_node = _app._scene_holder.get_child(0)
 

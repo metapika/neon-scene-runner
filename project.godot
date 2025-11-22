@@ -14,7 +14,7 @@ config/name="NeonSceneRunner"
 config/version="1.0"
 run/main_scene="uid://byl6ccg2is28v"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="uid://c4oajy3ulstwe"
+config/icon="uid://cmpn1k7s5vmfq"
 
 [autoload]
 
