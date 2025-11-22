@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://byl6ccg2is28v"]
+[gd_scene load_steps=3 format=3 uid="uid://byl6ccg2is28v"]
 
 [ext_resource type="Script" uid="uid://cj4okfhgkgch5" path="res://addons/neon_scene_runner/Scripts/Example/NeonRunner-Example-SwitchingScenes.gd" id="1_48myx"]
+[ext_resource type="FontFile" uid="uid://dknjoo38qw2m7" path="res://addons/neon_scene_runner/Fonts/CreatoDisplay-Regular.otf" id="2_ap35j"]
 
 [node name="ExampleMainMenu" type="Node2D"]
 
@@ -14,6 +15,7 @@ anchor_right = 1.0
 offset_top = 225.0
 offset_bottom = 304.0
 grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_ap35j")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "GAME TITLE
@@ -33,7 +35,8 @@ alignment = 1
 [node name="ChangeSceneButton" type="Button" parent="DEBUGONLYUI/ButtonHolder"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(0.870588, 0.192157, 0.388235, 1)
+theme_override_fonts/font = ExtResource("2_ap35j")
 text = "Play Game"
 
 [connection signal="button_down" from="DEBUGONLYUI/ButtonHolder/ChangeSceneButton" to="DEBUGONLYUI" method="_on_change_scene_button_down" binds= [1]]

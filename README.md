@@ -75,8 +75,9 @@ Firstly, let's discuss the core aspects of the **Plugin**. We have 2 **main comp
     - **Force Wait Loading** - As Godot is a very performance-friendly engine, loading scenes can be done in a blink of an eye, depending on how big the project is. Therefore to add the **illusion of the game actually loading in the scenes** and to not change scenes abruptly I've added a timer that makes the **Loading Screen** show up for X amount of time. **2.0** is the default, but it can also be set to **0.0**.
     - **Debug Mode** - In order to easily Debug the inner workings of the Plugin I've added a **Debug Mode** that prints out messages to Godot's **Output Dock**. I've **enabled** it by default, but you can easily disable it by making the property **false**.
 3.  Make sure you put all of your Game Scenes in the **Game Scene Path** of your choosing (The default path is **"Scenes/GameScenes"**).
-4.  Make sure that the **Run Scene** you put in **Project > Project Settings > Application > Run > Main Scene** is in the **Game Scene Path**.
-5.  You are ready to use **NeonSceneRunner**!
+4.  Delete all ExampleScenes from your **Game Scene Path** (unless you want to have them as backup / for testing purposes)
+5.  Make sure that the **Run Scene** you put in **Project > Project Settings > Application > Run > Main Scene** is in the **Game Scene Path**.
+6.  You are ready to use **NeonSceneRunner**!
 
 # Usage
 

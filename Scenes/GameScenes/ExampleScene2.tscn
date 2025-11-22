@@ -7,6 +7,6 @@
 [node name="DEBUGONLYUI" parent="." instance=ExtResource("1_thwuh")]
 
 [node name="SceneNotify" parent="DEBUGONLYUI" index="0"]
-text = "[color=\"blue\"]You are on ExampleScene: 2"
+text = "[color=\"0099FF\"]You are on ExampleScene: 2"
 
 [editable path="DEBUGONLYUI"]

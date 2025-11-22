@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://uwmc25gkluhf"]
+[gd_scene load_steps=3 format=3 uid="uid://uwmc25gkluhf"]
 
 [ext_resource type="Script" uid="uid://cj4okfhgkgch5" path="res://addons/neon_scene_runner/Scripts/Example/NeonRunner-Example-SwitchingScenes.gd" id="1_lu7cu"]
+[ext_resource type="FontFile" uid="uid://dknjoo38qw2m7" path="res://addons/neon_scene_runner/Fonts/CreatoDisplay-Regular.otf" id="2_fjwxp"]
 
 [node name="DEBUGONLYUI" type="CanvasLayer"]
 layer = 0
@@ -9,11 +10,13 @@ script = ExtResource("1_lu7cu")
 [node name="SceneNotify" type="RichTextLabel" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 79.0
+offset_top = 51.0
+offset_bottom = 130.0
 grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_fjwxp")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "[color=\"red\"]You are on ExampleScene: 1"
+text = "[color=\"DE3163\"]You are on ExampleScene: 1"
 horizontal_alignment = 1
 
 [node name="ButtonHolder" type="HBoxContainer" parent="."]
@@ -29,21 +32,24 @@ alignment = 1
 [node name="ChangeSceneButton" type="Button" parent="ButtonHolder"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(0.870588, 0.192157, 0.388235, 1)
+theme_override_fonts/font = ExtResource("2_fjwxp")
 text = "Switch to Scene:
 Example1"
 
 [node name="ChangeSceneButton2" type="Button" parent="ButtonHolder"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0, 0.317647, 1, 1)
+theme_override_fonts/font = ExtResource("2_fjwxp")
 text = "Switch to Scene:
 Example2"
 
 [node name="ChangeSceneButton3" type="Button" parent="ButtonHolder"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0.2, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_fjwxp")
 text = "Switch to Scene:
 Example3"
 
@@ -60,6 +66,7 @@ offset_right = 75.0
 offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fjwxp")
 text = "Quit to Title Screen"
 
 [connection signal="button_down" from="ButtonHolder/ChangeSceneButton" to="." method="_on_change_scene_button_down" binds= [1]]
