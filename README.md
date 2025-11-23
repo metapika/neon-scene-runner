@@ -78,7 +78,7 @@ Firstly, let's discuss the core aspects of the **Plugin**. We have 2 **main comp
 3.  Make sure you put all of your Game Scenes in the **Game Scene Path** of your choosing (The default path is **"Scenes/GameScenes"**).
 4.  Delete all ExampleScenes from your **Game Scene Path** (unless you want to have them as backup / for testing purposes)
 5.  Make sure that the **Run Scene** you put in **Project > Project Settings > Application > Run > Main Scene** is in the **Game Scene Path**.
-6.  You are ready to use **NeonSceneRunner**!
+6.  You can noow use **NeonSceneRunner** to it's full potential!
 
 # Usage
 
@@ -89,7 +89,7 @@ Firstly, let's discuss the core aspects of the **Plugin**. We have 2 **main comp
 
 
 > [!CAUTION]
-> If you ever disable the NeonSceneRunner Plugin it will produce errors as it automatically removes the App script from Autoload. You can either comment out the usages of the _change_scene() function or change the way you access the App script (as see in the Example script):
+> If you ever disable the NeonSceneRunner Plugin it will produce errors as it automatically removes the App script from Autoload. You can either comment out the usages of the _change_scene() function or change the way you access the App script (as seen in the Example script):
 
 - if ProjectSettings.has_setting("autoload/App"):  
             get_tree().root.get_node("App").\_runner.\_change_scene("ExampleScene" + str((\_example_scene_index)))
