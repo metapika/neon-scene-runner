@@ -102,7 +102,7 @@ Upon importing the **Plugin** you will see new Folders show up in the root of yo
 
 In order to try out the **NeonSceneRunner Addon** you can open the '**ExampleMainMenu.tscn**' Scene (or any others, if you wish) and **press** **F6** afterwards. You will be granted with an Example Title Screen for a game with a single 'Play Game' button:
 
-&lt;screenshot&gt;
+![s_mm.png](screenshots/s_mm.png)
 
 You can play around with the Example Game Scenes by pressing the buttons presented, all Scenes are color-coded to show that you are in fact switching between them.
 
