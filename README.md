@@ -44,7 +44,8 @@ Upon running the project (with **F5** or **F6**) the **App** script instantiate 
 1.  In your Godot Project press the '**AssetLib**' button at the top:
 ![assetlib.png](screenshots/assetlib.png)
 2.  Search "**NeonSceneRunner**" and Download the **Plugin** and press 'Install'.
-3.  Good job, you are ready to use **NeonSceneRunner**!
+3.  Go to Project > Project Settings > Plugins and make sure **NeonSceneRunner** is **Enabled**.
+4.  Good job, you are ready to use **NeonSceneRunner**!
 
 # Core Functionality
 
