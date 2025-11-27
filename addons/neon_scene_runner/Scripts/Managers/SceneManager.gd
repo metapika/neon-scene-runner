@@ -34,12 +34,8 @@ func _debug_message(msg : String, error : bool = false):
 ## Initialize Scene Resource Files
 func _ready() -> void:
 	## Find loading screen reference
-	if _app._page_controller != null:
-		## TODO: PAGE CONTROLLER INTEGRATION
-		pass
-	else:
-		_loading_screen = %UI.get_node("LoadingScreen")
-		
+	_loading_screen = %UI.get_node("LoadingScreen")
+	
 	## Example of connecting SceneManager signals to get info about scene changes
 	_scene_initialized.connect(_on_scene_loaded)
 	_scene_unloaded.connect(_on_scene_unloaded)
@@ -109,12 +105,12 @@ func _change_scene(_scene_name : String, _show_loading_screen = true):
 	## Current scenes are always the first childo of the _scene_holder Node
 	var _current_scene_node = _app._scene_holder.get_child(0)
 
-	if _show_loading_screen and _loading_screen:
-		## Checks if NeonPageController exists
+	if _show_loading_screen:
+		## NeonPageController Integration
 		if _app._page_controller != null:
-			## TODO: PAGE CONTROLLER INTEGRATION
-			pass
-		else:
+			#_app._page_controller._turn_page_off(_app._page_controller._current_page, 4)
+			_app._page_controller._turn_page_on(4)
+		elif _loading_screen:
 			_loading_screen.visible = true
 	elif _show_loading_screen and !_loading_screen:
 		_debug_message("Could not find the LoadingScreen UI object reference. Are you sure it exists?", true)
@@ -136,7 +132,12 @@ func _change_scene(_scene_name : String, _show_loading_screen = true):
 	_current_scene_node.queue_free()
 	_scene_unloaded.emit(_prev_scene_name)
 	
-	_loading_screen.visible = false
+	if _show_loading_screen:
+		## NeonPageController Integration
+		if _app._page_controller != null:
+			_app._page_controller._turn_page_off(4)
+		elif _loading_screen:
+			_loading_screen.visible = false
 	_new_scene.reparent(_app._scene_holder)
 	
 	_debug_message("Successfully changed to scene: \"%s\"" % [_scene_name])

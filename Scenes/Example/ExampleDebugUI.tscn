@@ -10,8 +10,8 @@ script = ExtResource("1_lu7cu")
 [node name="SceneNotify" type="RichTextLabel" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 51.0
-offset_bottom = 130.0
+offset_top = 130.0
+offset_bottom = 209.0
 grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("2_fjwxp")
 theme_override_font_sizes/normal_font_size = 40
