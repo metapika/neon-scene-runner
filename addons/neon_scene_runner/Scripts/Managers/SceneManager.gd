@@ -4,6 +4,8 @@ extends Node
 @export var _game_scenes_path = "Scenes/GameScenes"
 @export var _force_wait_loading = 2.0
 @export var _debug_mode = false
+@export var _loading_screen_page_index = 4
+
 @onready var _app = get_tree().root.get_node("App")
 
 ## Dictionary for storing initialized Scene Resources
@@ -108,8 +110,7 @@ func _change_scene(_scene_name : String, _show_loading_screen = true):
 	if _show_loading_screen:
 		## NeonPageController Integration
 		if _app._page_controller != null:
-			#_app._page_controller._turn_page_off(_app._page_controller._current_page, 4)
-			_app._page_controller._turn_page_on(4)
+			_app._page_controller._turn_page_on(_loading_screen_page_index)
 		elif _loading_screen:
 			_loading_screen.visible = true
 	elif _show_loading_screen and !_loading_screen:
@@ -135,7 +136,7 @@ func _change_scene(_scene_name : String, _show_loading_screen = true):
 	if _show_loading_screen:
 		## NeonPageController Integration
 		if _app._page_controller != null:
-			_app._page_controller._turn_page_off(4)
+			_app._page_controller._turn_page_off(_loading_screen_page_index)
 		elif _loading_screen:
 			_loading_screen.visible = false
 	_new_scene.reparent(_app._scene_holder)
