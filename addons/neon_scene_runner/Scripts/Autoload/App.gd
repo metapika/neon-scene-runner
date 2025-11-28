@@ -6,10 +6,10 @@ var _scene_holder
 var _runner : Control = null
 
 ## NeonPageController Core Script
-var _page_controller : Control = null
+var _page_controller : Node = null
 
 ## NeonGameModes Core Script
-var _game_mode_manager : Control = null
+var _game_mode_manager : Node = null
 
 ## Runner initialization
 func _ready() -> void:

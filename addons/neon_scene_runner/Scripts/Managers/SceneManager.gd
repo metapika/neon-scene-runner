@@ -36,7 +36,8 @@ func _debug_message(msg : String, error : bool = false):
 ## Initialize Scene Resource Files
 func _ready() -> void:
 	## Find loading screen reference
-	_loading_screen = %UI.get_node("LoadingScreen")
+	if %UI:
+		_loading_screen = %UI.get_node("LoadingScreen")
 	
 	## Example of connecting SceneManager signals to get info about scene changes
 	_scene_initialized.connect(_on_scene_loaded)
@@ -126,7 +127,7 @@ func _change_scene(_scene_name : String, _show_loading_screen = true):
 	_scene_initialized.emit(_current_scene_name)
 
 	## Wait a little bit more to show off the beautiful Loading Screen you've made!
-	if _show_loading_screen:
+	if _show_loading_screen and (_loading_screen or _app._page_controller._get_page_reference(_loading_screen_page_index)):
 		await get_tree().create_timer(_force_wait_loading).timeout
 	
 	get_tree().paused = false
