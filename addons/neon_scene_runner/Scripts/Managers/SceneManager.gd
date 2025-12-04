@@ -125,7 +125,7 @@ func _change_scene(_scene_name : String, _show_loading_screen = true):
 	## Emit the _scene_initalized signal
 	await get_tree().process_frame
 	_scene_initialized.emit(_current_scene_name)
-
+	
 	## Wait a little bit more to show off the beautiful Loading Screen you've made!
 	if _show_loading_screen and (_loading_screen or _app._page_controller._get_page_reference(_loading_screen_page_index)):
 		await get_tree().create_timer(_force_wait_loading).timeout

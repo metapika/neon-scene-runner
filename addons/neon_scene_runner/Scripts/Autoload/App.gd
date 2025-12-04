@@ -17,28 +17,34 @@ func _ready() -> void:
 	var _target_scene = get_tree().current_scene
 	var _target_is_runner = false
 	
+	## Get reference to the Run scene set by the dev
+	var _main_scene_path = ProjectSettings.get_setting("application/run/main_scene")
+	var _main_scene = load(_main_scene_path)
+	
 	## Detect if the user pressed F6 on a GameScene, or on the Runner Scene
 	if _target_scene.name == "Runner":
 		## User pressed F6 on the Runner Scene
 		_target_is_runner = true
 		_runner = _target_scene
 		
+		_target_scene.reparent(self)
+		
 		## Falling back to the Main Scene selected in Project Settings
-		var _main_scene_path = ProjectSettings.get_setting("application/run/main_scene")
-		var _main_scene = load(_main_scene_path).instantiate()
-		add_child(_main_scene)
-		_target_scene = _main_scene
+		var _main_scene_node = load(_main_scene_path).instantiate()
+		add_child(_main_scene_node)
+		_target_scene = _main_scene_node
 	
 	if !_target_is_runner:
 		if not ResourceLoader.exists("res://addons/neon_scene_runner/Scenes/Runner.tscn", "PackedScene"):
 			assert(false, "[NeonSceneRunner Addon Error] The Runner Scene file could not be loaded. Is the Runner Scene correctly named and placed in the /Scenes/Autoload folder?")
-			
+		
 		_runner = load("res://addons/neon_scene_runner/Scenes/Runner.tscn").instantiate()
 		add_child(_runner)
 		await get_tree().process_frame
 	
-	## TODO: NeonGameModes integration
-	#GlobalContainer.gamemode_manager._change_game_mode(0 if target_scene.name == "MainMenuScene" else 1)
+	## NeonGameModes Integration
+	if _game_mode_manager and _game_mode_manager._initial_game_mode > -1 and _game_mode_manager._gameplay_game_mode > -1:
+		_game_mode_manager._change_game_mode(0 if _target_scene.name == _main_scene.resource_path.get_file().get_basename() else 1)
 	
 	## Grab the reference for the scene holder for later use
 	_scene_holder = _runner.get_node("CanvasLayer/SubViewportContainer/MainViewport")
